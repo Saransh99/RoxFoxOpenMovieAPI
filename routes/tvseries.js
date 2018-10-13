@@ -9,6 +9,13 @@ router.get('/', async(req, res)=>{
     res.send(tvseries); 
 });
 
+router.get('/:id', async(req,res)=>{
+    const tvseries = await Tvseries.findById(req.params.id);
+    if(!tvseries) return res.status(404).send('the tvseries with the given id was not found');
+    res.send(tvseries);
+});
+
+
 router.post('/', async(req, res)=>{
 
     const {error} = validate(req.body);
@@ -47,6 +54,14 @@ router.post('/', async(req, res)=>{
     });
     await tvseries.save();
     res.send(tvseries);
+
+});
+
+router.put('/:id', async(req, res)=>{
+
+});
+
+router.delete('/:id', async(req,res)=>{
 
 });
 

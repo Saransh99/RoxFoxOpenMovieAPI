@@ -102,7 +102,7 @@ const Tvseries = mongoose.model('Tvseries', new mongoose.Schema({
     rated: {
         type: String,
         required: true,
-        enum: ["G", "PG", "PG-13", "R", "NC-17"],
+        enum: ["TV-Y", "TV-Y7", "TV-G", "TV-PG", "TV-14", "TV-MA"],
         uppercase: true,
         default: true
     },

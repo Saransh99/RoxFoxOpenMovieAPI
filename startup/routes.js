@@ -3,7 +3,9 @@ const genres = require('../routes/genres');
 const movies = require('../routes/movies');
 const tvgenres = require('../routes/tvgenres');
 const tvseries = require('../routes/tvseries');
-
+const users = require('../routes/users');
+const anime = require('../routes/anime');
+const home = require('../routes/home');
 
 module.exports = function(app){
 
@@ -12,4 +14,7 @@ module.exports = function(app){
     app.use('/api/movies', movies);
     app.use('/api/tvgenres', tvgenres);
     app.use('/api/tvseries', tvseries);
+    app.use('/api/users', users);
+    app.use('/api/anime', anime);
+    app.use('/', home);
 }

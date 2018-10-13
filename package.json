@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Saransh99/RoxFoxOpenMovieAPI#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "config": "^2.0.1",
     "express": "^4.16.4",
     "express-async-errors": "^3.1.1",
@@ -25,6 +26,7 @@
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.2",
+    "pug": "^2.0.3",
     "winston": "^3.1.0",
     "winston-mongodb": "^4.0.3"
   }
