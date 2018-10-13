@@ -1,0 +1,31 @@
+{
+  "name": "roxfoxopenmovieapi",
+  "version": "1.0.0",
+  "description": "Open Movie API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Saransh99/RoxFoxOpenMovieAPI.git"
+  },
+  "author": "Saransh Pal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Saransh99/RoxFoxOpenMovieAPI/issues"
+  },
+  "homepage": "https://github.com/Saransh99/RoxFoxOpenMovieAPI#readme",
+  "dependencies": {
+    "config": "^2.0.1",
+    "express": "^4.16.4",
+    "express-async-errors": "^3.1.1",
+    "joi": "^13.7.0",
+    "joi-objectid": "^2.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.2",
+    "winston": "^3.1.0",
+    "winston-mongodb": "^4.0.3"
+  }
+}
