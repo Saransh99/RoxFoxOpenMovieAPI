@@ -6,6 +6,7 @@ const tvseries = require('../routes/tvseries');
 const users = require('../routes/users');
 const anime = require('../routes/anime');
 const home = require('../routes/home');
+const error = require('../middleware/error');
 
 module.exports = function(app){
 
@@ -17,4 +18,5 @@ module.exports = function(app){
     app.use('/api/users', users);
     app.use('/api/anime', anime);
     app.use('/', home);
+    app.use(error);
 }

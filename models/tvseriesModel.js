@@ -19,9 +19,8 @@ const Tvseries = mongoose.model('Tvseries', new mongoose.Schema({
 
     seasons: {
 
-        type: Array,
-        required: true
-
+        type: Map,
+        off: String
     },
 
     episodes:[
@@ -188,7 +187,7 @@ function validateTvseries(tvseries){
         trailers: Joi.array().required(),
         category: Joi.string().required(),
         tags: Joi.array().required(),
-        seasons: Joi.array().required(),
+        seasons: Joi.object().required(),
         episodes: Joi.array().required()
     };
 
