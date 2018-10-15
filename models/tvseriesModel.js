@@ -16,7 +16,7 @@ const Tvseries = mongoose.model('Tvseries', new mongoose.Schema({
         type: tvGenreSchema,
         required: true
     },
-
+    
     seasons: {
 
         type: Map,
@@ -147,7 +147,7 @@ const Tvseries = mongoose.model('Tvseries', new mongoose.Schema({
     category: {
         type: String,
         default: true,
-        enum: ['movie','tvseries','music'],
+        enum: ['movie','tvseries','music','anime','games'],
         lowercase: true,
         trim: true
     },

@@ -1,9 +1,12 @@
 const {Movie, validate} = require('../models/movieModel');
 const {Genre} = require('../models/genreModel');
-
+const auth = require('../middleware/auth');
+const validateObjectId = require('../middleware/validateObjectId');
+const admin = require('../middleware/admin');
 const express = require('express');
 const router = express.Router();
 
+// TODO: also implement finding the movie by providing the name of the movie
 
 router.get('/', async (req, res)=>{
 
@@ -11,19 +14,13 @@ router.get('/', async (req, res)=>{
     res.send(movies);
 });
 
-router.get('/:id', async (req, res)=>{
+router.get('/:id', validateObjectId, async (req, res)=>{
     const movie = await Movie.findById(req.params.id);
     if(!movie) return res.status(404).send('the movie with the given id was not found!!');
     res.send(movie);
 });
 
-router.get('/:title', async(req,res)=>{
-    const movie = await Movie.findOne(req.params.title,{title: 1});
-    if(!movie) return res.status(404).send('the movie with the given name is not available!!!');
-    res.send(movie);
-});
-
-router.post('/', async (req, res)=>{
+router.post('/', auth, async (req, res)=>{
 
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -62,7 +59,7 @@ router.post('/', async (req, res)=>{
     res.send(movie);
 });
 
-router.put('/:id', async(req, res)=>{
+router.put('/:id', [auth, validateObjectId], async(req, res)=>{
     const {error} = validate(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -88,7 +85,12 @@ router.put('/:id', async(req, res)=>{
         rated: req.body.rated,
         runtime: req.body.runtime,
         boxOffice: req.body.boxOffice,
-        technicalSpecs: req.body.technicalSpecs
+        technicalSpecs: req.body.technicalSpecs,
+        images: req.body.images,
+        trailers: req.body.trailers,
+        imdbRating: req.body.imdbRating,
+        category: req.body.category,
+        tags: req.body.tags
 
     }, {new: true});
 
@@ -96,7 +98,7 @@ router.put('/:id', async(req, res)=>{
     res.send(movie);
 });
 
-router.delete('/:id', async (req,res)=>{
+router.delete('/:id', [auth, admin, validateObjectId], async (req,res)=>{
     const movie = await Movie.findByIdAndRemove(req.params.id);
     if(!movie) return res.status(404).send('the movie with the given id was not found');
     res.send(movie);
