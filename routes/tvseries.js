@@ -8,8 +8,14 @@ const router = express.Router();
 
 
 router.get('/', async(req, res)=>{
-    const tvseries = await Tvseries.find().sort('title');
+    const tvseries = await Tvseries.find().sort({title: 1}); // sorting by the title of the tvseries
     res.send(tvseries); 
+});
+
+// showing only the titles of the tvseries and sorting them by the titles
+router.get('/titles', async(req, res)=>{
+    const tvseries = await Tvseries.find({},{title: 1}).sort({title: 1});
+    res.send(tvseries);
 });
 
 router.get('/:id', validateObjectId,async(req,res)=>{

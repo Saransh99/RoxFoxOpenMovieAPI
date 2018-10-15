@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', async (req,res)=>{
-    const tvgenres = await TvGenre.find().sort('name');
+    const tvgenres = await TvGenre.find().sort({name: 1}); // sorting the genre by the name 
     res.send(tvgenres);
 });
 

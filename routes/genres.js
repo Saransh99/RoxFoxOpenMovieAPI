@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/', async (req,res)=>{
-    const genres = await Genre.find().sort('name');
+    const genres = await Genre.find({},{name: 1}).sort({name: 1}); // sorting the title by showing only name of the genre
     res.send(genres);
 });
 
@@ -15,6 +15,14 @@ router.get('/:id', validateObjectId, async(req, res)=>{
     const genre = await Genre.findById(req.params.id);
     if(!genre) return res.status(404).send('the genre with the given id is not valid!!!');
     res.send(genre);
+});
+
+
+router.get('/:name', async(req, res)=>{
+    const genre = await Genre.findOne(req.param.name);
+    if(!genre) return res.status(404).send('the genre name is not valid!!!');
+    res.send(genre);    
+    
 });
 
 // !can post only if authorized

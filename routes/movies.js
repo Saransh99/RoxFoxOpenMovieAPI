@@ -6,11 +6,28 @@ const admin = require('../middleware/admin');
 const express = require('express');
 const router = express.Router();
 
+//* we can find the movies by using diff fields if we want to show them 
+//* Movie.find({}, {title: 1}).sort({title: 1});  // this will show only the titles of the movies by sorting them in the asc order
+//* Movie.find({}, {"genre.name":1})   // this will get the name prop of the genre object 
+
 // TODO: also implement finding the movie by providing the name of the movie
 
 router.get('/', async (req, res)=>{
 
-    const movies = await Movie.find().sort('title');
+    const movies = await Movie.find().sort({title: 1}); // sorting by the title and will display only the titles of the movies  
+    res.send(movies);
+});
+
+// show only the movies titles
+router.get('/titles', async(req, res)=>{
+
+    const movies = await Movie.find({},{title: 1}).sort({title: 1});
+    res.send(movies);
+});
+
+// show brief info about the movies 
+router.get('/briefinfo', async(req, res)=>{
+    const movies = await Movie.find({}, {title: 1, director: 1, genre: 1, category: 1 }).sort({title: 1});
     res.send(movies);
 });
 

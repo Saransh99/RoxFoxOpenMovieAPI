@@ -140,7 +140,6 @@ const Game = mongoose.model('Games', new mongoose.Schema({
     },
     category: {
         type: String,
-        default: true,
         enum: ['movie','tvseries','music','anime', 'games'],
         lowercase: true,
         trim: true
