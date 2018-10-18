@@ -6,11 +6,11 @@ const tvseries = require('../routes/tvseries');
 const users = require('../routes/users');
 const anime = require('../routes/anime');
 const games = require('../routes/games');
+const auth = require('../routes/auth');
 const home = require('../routes/home');
 const error = require('../middleware/error');
 
-module.exports = function(app){
-
+module.exports = function(app) {
     app.use(express.json());
     app.use('/api/genres', genres);
     app.use('/api/movies', movies);
@@ -19,6 +19,7 @@ module.exports = function(app){
     app.use('/api/users', users);
     app.use('/api/anime', anime);
     app.use('/api/games', games);
+    app.use('/api/auth', auth);
     app.use('/', home);
     app.use(error);
-}
+};
