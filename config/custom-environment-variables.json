@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey":"roxfoxopenmovie_jwtPrivateKey"
+    "jwtPrivateKey": "roxfoxopenmovie_jwtPrivateKey",
+    "db": "roxfoxopenmovie_db"
 }

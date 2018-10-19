@@ -128,7 +128,8 @@ router.put('/:id', [auth, validateObjectId], async (req, res) => {
             trailers: req.body.trailers,
             imdbRating: req.body.imdbRating,
             category: req.body.category,
-            tags: req.body.tags
+            tags: req.body.tags,
+            releasedDate: req.body.releasedDate
         },
         { new: true }
     );
