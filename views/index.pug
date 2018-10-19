@@ -1,32 +1,15 @@
-doctype html
-html   
-    head
-        title RoxFoxOpenMovieAPI
-    body
+extends layout
+
+block content
         header
             h1 RoxFoxOpenMovieAPI
             hr
         p This is the open API for the movies and tv series using the RESTful web Services
-        p Includes all the http methods:-
+        p Includes all the HTTP methods:-
             ul
                 li GET:- this will get the data from the server
                 li POST:- this will post the data to the server 
                 li DELETE:- this method is used to delete the data in the server
                 li PUT:- this method is used to update the data in the server
             ul
-        hr
-        footer
-            h4 Copyright, RoxFox 2018
-            p make the api calls at :-
-                a.apiCalls(href='localhost:3000/api') localhost:3000/api
-                ul
-                    li Movies Api call at:-
-                        a.moviesApiCalls(href='localhost:3000/api/movies') localhost:3000/api/movies
-                    li Genres Api call at:-
-                        a.genresApiCalls(href='localhost:3000/api/genres') localhost:3000/api/genres
-                    li Tvseries Api call at:-
-                        a.tvseriesApiCalls(href='localhost:3000/api/tvseries') localhost:3000/api/tvseries
-                    li Anime Api call at:-
-                        a.animeApiCalls(href='localhost:3000/api/anime') localhost:3000/api/anime
-                        
-                ul
+            
