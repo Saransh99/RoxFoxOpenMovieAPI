@@ -47,7 +47,7 @@ router.get('/titles/:title', async (req, res) => {
     if (!movie)
         return res
             .status(404)
-            .send('the movie withe the given title is not valid!!');
+            .render('404');
     res.send(movie);
 });
 

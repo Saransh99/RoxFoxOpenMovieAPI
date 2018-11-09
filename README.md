@@ -1,6 +1,14 @@
-// TODO:-                            // add these routes
+CORS:- cross origin resourse sharing is enabled in this API so no need to make a proxy server or anything else
+cors middleware:- this is the 3rd party middleware which we can use directly in the api so we don't need to write the middleware by ourself
+--> we can write the cors middleware by specifying the req headers
 
--> finding the tv series, animes with the particular season no. and episode no.
--> finding the movies, tvseries by the name or the title 
--> showing all the titles of the particular movies, tvseries, anime, games
--> find the top 25 movies, tvseries, animes, games
+
+
+
+// TODO:- 
+
+-------------------  THis will be huge for the api -------------------------
+
+-> we will add the google oAuth 2.0 authentication using passport.js
+-> save the google profile in the mongodb database 
+-> we will send the token to the google mail

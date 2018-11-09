@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-// check the log files to see the uncaught and caught exceptions
+// *check the log files to see the uncaught and caught exceptions
 
 require('./startup/logging')();
 require('./startup/routes')(app);

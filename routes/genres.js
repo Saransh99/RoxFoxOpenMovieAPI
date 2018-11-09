@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
     res.send(genres);
 });
 
+
 router.get('/:id', validateObjectId, async (req, res) => {
     const genre = await Genre.findById(req.params.id);
     if (!genre)
-        return res
-            .status(404)
-            .send('the genre with the given id is not valid!!!');
+        return res.status(404).redirect('index');
+
     res.send(genre);
 });
 
