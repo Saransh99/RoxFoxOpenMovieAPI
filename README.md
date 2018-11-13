@@ -29,6 +29,8 @@ Use the package manager [npm](https://npmjs.com "NPM") to install the modules in
 npm install 
 ```
 
+![install](https://github.com/Saransh99/RoxFoxOpenMovieAPI/blob/master/images/install.png)
+
 To run the api use
 
 ```bash
