@@ -12,12 +12,13 @@ const auth = require('../routes/auth');
 const home = require('../routes/home');
 const celebs = require('../routes/celebs');
 const musicAlbum = require('../routes/musicAlbum');
+const passportLogin = require('../routes/passport-login');
 const error = require('../middleware/error');
 
 module.exports = function (app) {
     //! This is the 3rd party middleware to enable the CORS in the server side 
     app.use(cors());
-    app.use(express.json());
+    app.use(express.json()); // express middleware to parse the json data in the server 
 
     // *to limit the request of the api we have to put this middleware before the routes 
     // *we limit this to 10 req per 30s both GET and the POST request 
@@ -51,6 +52,7 @@ module.exports = function (app) {
     app.use('/api/anime', apiLimiter, anime);
     app.use('/api/games', apiLimiter, games);
     app.use('/api/auth', apiLimiter, auth);
+    app.use('/api/login', apiLimiter, passportLogin);
     app.use('/api/celebs', apiLimiter, celebs);
     app.use('/api/musicAlbum', apiLimiter, musicAlbum);
     app.use('/', home);

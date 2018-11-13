@@ -37,6 +37,23 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
         required: true
+    },
+
+    googleId: {
+        type: String,
+        default: ''
+    },
+
+    facebookId: {
+        type: String,
+        default: ''
+    },
+
+    fbTokens: Array,
+
+    userImage: {
+        type: String,
+        default: 'default.png'
     }
 });
 
