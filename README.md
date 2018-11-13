@@ -35,9 +35,8 @@ To run the api use
 npm start
 ```
 
-![starting](https://github.com/Saransh99/starting.png)
+![starting](https://github.com/Saransh99/RoxFoxOpenMovieAPI/blob/master/images/start.png)
 
----
 
 ## Built With
 
@@ -48,7 +47,7 @@ npm start
 * [Jest](https://jestjs.io/) - testing purpose
 * [Postman](https://www.getpostman.com/) - testing API 
 * [Visual Studio Code](https://code.visualstudio.com) - text editor
----
+
 
 ## Contributors
 
@@ -60,13 +59,10 @@ npm start
 > Pull request are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
----
-
 ## Further Additions to the API
 
 - [ ] Add Mailing service to the person's email
 - [ ] Making Front-End with React.js
-- [ ] 
 
 ---
 
