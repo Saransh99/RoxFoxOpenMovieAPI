@@ -14,6 +14,10 @@ const celebs = require('../routes/celebs');
 const musicAlbum = require('../routes/musicAlbum');
 const passportLogin = require('../routes/passport-login');
 const error = require('../middleware/error');
+const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
+const rfs = require('rotating-file-stream');
 
 module.exports = function (app) {
     //! This is the 3rd party middleware to enable the CORS in the server side 
@@ -44,6 +48,24 @@ module.exports = function (app) {
         message: "Too many Accounts created in a small time span from this IP..... try again after some time!!!!"
     });
 
+
+    // This is the Morgan daily logger folder
+    // this will create a accessfile daily 
+
+    let logDirectory = path.join(__dirname, '../logs')
+ 
+    // ensure log directory exists
+    fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+    let accessLogStream = rfs('access.log', {
+        interval: '1d', // rotate daily
+        path: logDirectory
+      })
+
+    // we are logging all the req to the access.log file using the morgan 
+    //let accessStreamLog = fs.createWriteStream(path.join(__dirname, '../access.log'), {flags: 'a'});
+    app.use(morgan('combined', {stream: accessLogStream}));
+
     app.use('/api/genres', apiLimiter, genres);
     app.use('/api/movies', apiLimiter, movies);
     app.use('/api/tvgenres', apiLimiter, tvgenres);
@@ -57,4 +79,5 @@ module.exports = function (app) {
     app.use('/api/musicAlbum', apiLimiter, musicAlbum);
     app.use('/', home);
     app.use(error);
+
 };

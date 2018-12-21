@@ -1,0 +1,2 @@
+::ffff:127.0.0.1 - - [21/Dec/2018:12:25:35 +0000] "GET /api/genres HTTP/1.1" 200 154 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0"
+::ffff:127.0.0.1 - - [21/Dec/2018:12:27:22 +0000] "GET /api/movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:64.0) Gecko/20100101 Firefox/64.0"
