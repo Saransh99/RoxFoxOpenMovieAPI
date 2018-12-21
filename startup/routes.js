@@ -1,4 +1,5 @@
 const express = require('express');
+const favicon = require('serve-favicon');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const genres = require('../routes/genres');
@@ -18,8 +19,12 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const rfs = require('rotating-file-stream');
+const contentLength = require('express-content-length-validator');
 
 module.exports = function (app) {
+
+    app.use(favicon(path.join(__dirname, '../views', 'favicon.png'))); // !!!! check this is not working 
+    
     //! This is the 3rd party middleware to enable the CORS in the server side 
     app.use(cors());
     app.use(express.json()); // express middleware to parse the json data in the server 
@@ -49,6 +54,7 @@ module.exports = function (app) {
     });
 
 
+
     // This is the Morgan daily logger folder
     // this will create a accessfile daily 
 
@@ -66,6 +72,11 @@ module.exports = function (app) {
     //let accessStreamLog = fs.createWriteStream(path.join(__dirname, '../access.log'), {flags: 'a'});
     app.use(morgan('combined', {stream: accessLogStream}));
 
+
+    const MAX_CONTENT_LENGTH_ACCEPTED = 9999;
+    app.use(contentLength.validateMax({max: MAX_CONTENT_LENGTH_ACCEPTED}));
+
+    
     app.use('/api/genres', apiLimiter, genres);
     app.use('/api/movies', apiLimiter, movies);
     app.use('/api/tvgenres', apiLimiter, tvgenres);
