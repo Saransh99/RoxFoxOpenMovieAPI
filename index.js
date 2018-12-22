@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 
 // *check the log files to see the uncaught and caught exceptions
 

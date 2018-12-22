@@ -1,7 +1,10 @@
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
 const User = require('../models/userModel');
-const secrets = require('../secrets/keys');
+
+// set up all the keys in the .env file 
+// i have not commited the secrets folder into the github therefore i have to configure the env variables inthe .env file again 
+
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -15,8 +18,8 @@ passport.deserializeUser((id, done) => {
 
 passport.use(new FacebookStrategy({
 
-    clientID: secrets.facebook.clientId,
-    clientSecret: secrets.facebook.clientSecret,
+    clientID: process.env.FB_CLIENT_ID,
+    clientSecret: process.env.FB_CLIENT_SECRET,
     profileField: ['email', 'displayName', 'photos'],
     callbackURL: 'http://localhost:3000/auth/facebook/callback' || secrets.facebook.callBackURL,
     passReqToCallBack: true
