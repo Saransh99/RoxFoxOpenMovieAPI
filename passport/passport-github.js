@@ -22,6 +22,9 @@ passport.use(new GitHubStrategy({
 
 }, (accessToken, refreshToken, profile, done) => {
 
+    // first check if the user already exists 
+
+    
 
 }
 

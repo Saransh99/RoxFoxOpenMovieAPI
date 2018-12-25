@@ -4,15 +4,17 @@ const _ = require('lodash');
 const { User } = require('../models/userModel');
 const express = require('express');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 
 // * this route will provide the authenticated user with the authorization token
-// * the token will be displayed as the result
+// * the token will be displayed as the result on the response header
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
     let user = await User.findOne({ email: req.body.email });
+    //console.log(user.email);
     if (!user) return res.status(400).send('invalid email or password!!!');
 
     const validPassword = await bcrypt.compare(
@@ -23,6 +25,37 @@ router.post('/', async (req, res) => {
         return res.status(400).send('invalid email or password');
 
     const token = user.generateAuthToken();
+
+    //sending the token to the authenticated user email address
+    const transporter = nodemailer.createTransport({
+  
+        service: 'Gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+              type: 'OAUTH2',
+              user: process.env.NODEMAILER_FROM_EMAIL,
+              clientId: process.env.GOOGLE_CLIENT_ID,
+              clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+              refreshToken: process.env.GOOGLE_REFRESH_TOKEN    
+        }
+      });
+      
+      const mailOptions = {
+        from: process.env.NODEMAILER_FROM_EMAIL,
+        to: user.email,
+        subject: 'Auth Token',
+        text: 'Token valid for 24 hrs only:- '+ token,
+        //html: '<b>This is bold </b>'
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+              console.log(`Email sent:   Info Response:- ${info.response} Info MessageId:- ${info.messageId}`);
+          }
+      });
+
     res.send(token);
 });
 
