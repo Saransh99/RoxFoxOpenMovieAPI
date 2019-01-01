@@ -9,7 +9,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-    User.findOne(id, (err, user) => {
+    User.findById(id, (err, user) => {
         done(err, user);
     });
 });
@@ -18,13 +18,12 @@ passport.use(new GoogleStrategy({
 
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/google/callback' || secrets.google.callBackURL,
+    callbackURL: 'http://localhost:3000/api/auth/google/callback' || process.env.GOOGLE_CALLBACK_URL,
     passReqToCallBack: true
 
 }, (accessToken, refreshToken, profile, done) => {
 
-    // first check if the user profile already exist
-    User.findOne({ google: profile.id }, (err, user) => {
+    User.findOne({ googleId: profile.id }, (err, user) => {
         if (err) return done(err);
 
         if (user) return done(null, user);
@@ -32,8 +31,8 @@ passport.use(new GoogleStrategy({
         else {
             const newUser = new User({
                 googleId: profile.id,
-                emai: profile.emails[0]['value'],
-                userImage: profile._json.image_url,
+                email: profile.emails[0]['value'],
+                userImage: profile._json.image['url'],
                 firstName: profile.name['givenName'],
                 lastName: profile.name['familyName']
             });
@@ -42,8 +41,9 @@ passport.use(new GoogleStrategy({
                 if (err) return done(err);
                 return done(null, newUser);
             });
-        }
 
+            //console.log(newUser);
+        }
     });
 }
 

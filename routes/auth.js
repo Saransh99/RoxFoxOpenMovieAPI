@@ -5,6 +5,41 @@ const { User } = require('../models/userModel');
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const passport = require('passport');
+
+
+// auth login
+router.get('/login', (req, res)=>{
+    res.render('login');
+});
+
+// auth logout
+router.get('/logout', (req, res)=>{
+    res.send('logging out of the API');
+});
+
+// auth with google 
+router.get('/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+}));
+
+// google callback
+router.get('/google/callback', passport.authenticate('google'), (req, res)=>{
+    res.send('You have reached the gooogle callback');
+});
+
+// auth with github
+router.get('/github', (req, res)=>{
+    res.send('Login to the github account');
+});
+
+router.get('/twitter', (req, res)=>{
+    res.send('Login to the twitter account');
+});
+
+router.get('/facebook', (req, res)=>{
+    res.send('Login to the facebook account');
+});
 
 // * this route will provide the authenticated user with the authorization token
 // * the token will be displayed as the result on the response header

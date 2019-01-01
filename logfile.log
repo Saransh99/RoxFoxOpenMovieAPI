@@ -28,3 +28,26 @@
 {"code":"PUG:SYNTAX_ERROR","msg":"Syntax Error: Unexpected token","line":13,"column":29,"filename":"E:\\RoxFoxOpenMovieAPI\\views\\404.pug"}
 {"code":"PUG:SYNTAX_ERROR","msg":"Syntax Error: Unexpected token","line":13,"column":223,"filename":"E:\\RoxFoxOpenMovieAPI\\views\\404.pug"}
 {"expose":true,"statusCode":400,"status":400,"body":"{\n\t\"firstName\":\"Saransh\",\n\t\"lastName\":\"Pal\",\n\t\"password\":\"$Aransh331\"\n\t\"email\":\"palsaransh99@gmail.com\",\n\t\"admin\":true\n}","type":"entity.parse.failed","level":"error","message":"Unexpected string in JSON at position 71"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.find is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findById is not a function"}
+{"level":"error","message":"User.findOrCreate is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findById is not a function"}
+{"level":"error","message":"User.find is not a function"}
+{"level":"error","message":"User.findOrCreate is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}
+{"level":"error","message":"User.findOne is not a function"}

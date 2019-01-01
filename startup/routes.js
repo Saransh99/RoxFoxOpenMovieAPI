@@ -13,13 +13,16 @@ const auth = require('../routes/auth');
 const home = require('../routes/home');
 const celebs = require('../routes/celebs');
 const musicAlbum = require('../routes/musicAlbum');
-const passportLogin = require('../routes/passport-login');
 const error = require('../middleware/error');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const rfs = require('rotating-file-stream');
 const contentLength = require('express-content-length-validator');
+const passportGoogle = require('../passport/passport-google');
+const passportTwitter = require('../passport/passport-twitter');
+const passportGitHub = require('../passport/passport-github');
+const passportFacebook = require('../passport/passport-facebook');
 
 module.exports = function (app) {
 
@@ -85,7 +88,6 @@ module.exports = function (app) {
     app.use('/api/anime', apiLimiter, anime);
     app.use('/api/games', apiLimiter, games);
     app.use('/api/auth', apiLimiter, auth);
-    app.use('/api/login', apiLimiter, passportLogin);
     app.use('/api/celebs', apiLimiter, celebs);
     app.use('/api/musicAlbum', apiLimiter, musicAlbum);
     app.use('/', home);
