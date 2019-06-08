@@ -26,8 +26,8 @@ const passportFacebook = require('../passport/passport-facebook');
 
 module.exports = function (app) {
 
-    app.use(favicon(path.join(__dirname, '../views', 'favicon.png'))); // !!!! check this is not working 
-    
+    app.use(favicon(path.join(__dirname, '../views', 'favicon.png'))); 
+
     //! This is the 3rd party middleware to enable the CORS in the server side 
     app.use(cors());
     app.use(express.json()); // express middleware to parse the json data in the server 

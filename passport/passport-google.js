@@ -23,6 +23,11 @@ passport.use(new GoogleStrategy({
 
 }, (accessToken, refreshToken, profile, done) => {
 
+    console.log(profile);
+
+
+    // check why findOne is not a function 
+    
     User.findOne({ googleId: profile.id }, (err, user) => {
         if (err) return done(err);
 
