@@ -22,7 +22,7 @@
     "homepage": "https://github.com/Saransh99/RoxFoxOpenMovieAPI#readme",
     "dependencies": {
         "bcrypt": "^3.0.0",
-        "body-parser": "^1.18.3",
+        "body-parser": "^1.20.1",
         "chalk": "^2.4.2",
         "compression": "^1.7.3",
         "config": "^2.0.1",
@@ -32,7 +32,7 @@
         "dotenv": "^6.2.0",
         "ejs": "^2.6.1",
         "expect-ct": "^0.1.1",
-        "express": "^4.16.4",
+        "express": "^4.18.2",
         "express-async-errors": "^3.1.1",
         "express-content-length-validator": "^1.0.0",
         "express-rate-limit": "^3.2.1",
