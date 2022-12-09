@@ -32,7 +32,7 @@
         "dotenv": "^6.2.0",
         "ejs": "^2.6.1",
         "expect-ct": "^0.1.1",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "express-async-errors": "^3.1.1",
         "express-content-length-validator": "^1.0.0",
         "express-rate-limit": "^3.2.1",
