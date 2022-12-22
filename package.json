@@ -43,7 +43,7 @@
         "jest": "^23.6.0",
         "joi": "^13.7.0",
         "joi-objectid": "^2.0.0",
-        "jsonwebtoken": "^8.3.0",
+        "jsonwebtoken": "^9.0.0",
         "lodash": "^4.17.11",
         "moment": "^2.22.2",
         "mongoose": "^5.3.2",
